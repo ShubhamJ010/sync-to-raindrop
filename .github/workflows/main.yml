@@ -5,7 +5,7 @@ on:
     - cron: "0 * * * *"
   workflow_dispatch:
   push:
-    branches: [main]
+    branches: [main, twitter-sync-feature]
 
 jobs:
   build-and-run:
@@ -32,5 +32,6 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}  # Your personal access token with read:user
           RAINDROP_TOKEN: ${{ secrets.RAINDROP_TOKEN }}
-          RAINDROP_COLLECTION_ID: ${{ secrets.RAINDROP_COLLECTION_ID }}
-        run: node src/script.js
+          RAINDROP_GITHUB_COLLECTION_ID: ${{ secrets.RAINDROP_GITHUB_COLLECTION_ID }}
+          RAINDROP_TWITTER_COLLECTION_ID: ${{ secrets.RAINDROP_TWITTER_COLLECTION_ID }}
+        run: npm start
