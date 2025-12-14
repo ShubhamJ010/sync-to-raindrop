@@ -2,15 +2,9 @@ import axios from "axios";
 import _ from "lodash";
 import { Octokit } from "octokit";
 
-const raindropAxios = axios.create({
-  baseURL: "https://api.raindrop.io/rest/v1",
-  headers: {
-    Authorization: `Bearer ${process.env.RAINDROP_TOKEN}`,
-    "Content-Type": "application/json",
-  },
-});
+import { raindropAxios } from "./raindrop-client.js";
 
-export const main = async () => {
+export const syncGithubStars = async () => {
   const octokit = new Octokit({ auth: process.env.GH_TOKEN });
 
   console.log(new Date(), "Fetching all your starred repos...");
@@ -32,7 +26,7 @@ export const main = async () => {
 
   const newRaindrops = (stars as unknown as ActualStar[]).map((star) => {
     return {
-      collectionId: process.env.RAINDROP_COLLECTION_ID,
+      collectionId: process.env.RAINDROP_GITHUB_COLLECTION_ID,
       title: star.repo.full_name,
       link: star.repo.html_url,
       tags: _([

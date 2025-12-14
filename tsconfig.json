@@ -12,5 +12,10 @@
       // different options with a single tsconfig.json.
     }
   },
-  "compilerOptions": {}
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "target": "ES2022"
+  }
 }
