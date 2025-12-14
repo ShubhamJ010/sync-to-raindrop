@@ -34,6 +34,7 @@ You need to provide the Collection ID for where you want to store the items.
 
 1. Place your Twitter Bookmarks CSV file in the root directory.
    - The file must be named `twitter-Bookmarks-<timestamp>.csv` (e.g., `twitter-Bookmarks-1765735080303.csv`).
+   - **Tip**: You can use [twitter-web-exporter](https://github.com/prinsss/twitter-web-exporter) userscript to export your bookmarks to CSV without using the X API.
 2. The script will automatically pick up this file and sync it.
 
 # Running (self-hosted)
